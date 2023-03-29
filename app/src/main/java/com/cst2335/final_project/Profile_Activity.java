@@ -8,7 +8,6 @@ import android.os.Bundle;
 /**
  * This class represents a profile of a person.
  * It will store their login information and download history.
- * Please include a password verification.
  */
 
 //implement both the "checker" and the saved prefs in this class.
@@ -24,6 +23,15 @@ public class Profile_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+        //Instantiations and variables
         SharedPreferences preferences = getSharedPreferences("profile_data", Context.MODE_PRIVATE);
+
+        //TODO: Launch another activity by using onclick. Refer to Profile Lab.
+
+        //TODO: Implement password verification.
+
+        //TODO: Implement toast messages (alerts/warnings) if the password has not passed.
+
+        //TODO: Create a shared pref and create a profile display for MAIN_ACTIVITY to display the user's name.
     }
 }
