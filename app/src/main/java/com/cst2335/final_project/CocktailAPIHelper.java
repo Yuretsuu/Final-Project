@@ -1,10 +1,12 @@
 package com.cst2335.final_project;
 
+import android.content.Context;
 import android.util.Log;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -13,14 +15,22 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CocktailAPI {
+/**
+ * This class is responsible for handling methods related to handling the drinks API.
+ * @author Elizabeth Quach
+ */
+public class CocktailAPIHelper {
 
     private static final String URL_SEARCH_NAME = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
     private static final String URL_SEARCH_INGREDIENT = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=";
     private RequestQueue queue;
 
-    public CocktailAPI(RequestQueue q){
+    public CocktailAPIHelper(RequestQueue q){
         this.setQueue(q);
+    }
+
+    public CocktailAPIHelper(Context context){
+        this(Volley.newRequestQueue(context));
     }
 
     public List<Cocktail> searchByName(String query) {
