@@ -33,7 +33,12 @@ public class CocktailAPIHelper {
         this(Volley.newRequestQueue(context));
     }
 
-    public List<Cocktail> searchByName(String query) {
+    /**
+     *
+     * @param query user input
+     * @param callback when the API response comes back.
+     */
+    public void searchByName(String query, SearchCallback callback) {
         final List<Cocktail> result = new ArrayList<>();
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, URL_SEARCH_NAME + query, null,
@@ -46,18 +51,20 @@ public class CocktailAPIHelper {
                         for (int i = 0; i < n; i++) {
                             final JSONObject drink = drinks.getJSONObject(i);
 
+                            final int id = drink.getInt("idDrink");
                             final String drinkName = drink.getString("strDrink");
                             final String instructions = drink.getString("strInstructions");
                             final String ingredientOne = drink.getString("strIngredient1");
                             final String ingredientTwo = drink.getString("strIngredient2");
                             final String ingredientThree = drink.getString("strIngredient3");
 
-                            Log.i("Drink",drinkName);
-
                             final Cocktail cocktail = new Cocktail(
-                                    drinkName, instructions, ingredientOne, ingredientTwo,ingredientThree);
+                                   id, drinkName, instructions, ingredientOne, ingredientTwo,ingredientThree);
 
+                            result.add(cocktail);
                         }
+                        //
+                        callback.onResponse(result);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -70,14 +77,16 @@ public class CocktailAPIHelper {
 
 
         queue.add(request);
-
-        return result;
+        return;
     }
-
-
 
 
     public void setQueue(RequestQueue queue) {
         this.queue = queue;
+    }
+
+
+    public interface SearchCallback {
+        void onResponse(List<Cocktail> drinks);
     }
 }
