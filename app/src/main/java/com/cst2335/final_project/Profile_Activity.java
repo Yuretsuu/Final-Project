@@ -15,6 +15,10 @@ import android.widget.Toast;
 /**
  * This class represents a profile of a person.
  * It will store their login information and download history.
+ * @author Elizabeth Quach, Jacob Stoppa
+ *
+ * Workload division:
+ * The file was created by Liz and the code was implemented by Jacob.
  */
 
 //implement both the "checker" and the saved prefs in this class.
