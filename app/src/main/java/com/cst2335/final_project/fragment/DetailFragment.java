@@ -13,7 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.cocktaildatabase_loveleen.R;
+import com.cst2335.final_project.R;
 import com.cst2335.final_project.database.Cocktail;
 import com.cst2335.final_project.database.CocktailDatabaseAccess;
 import com.cst2335.final_project.network.MyExecutor;

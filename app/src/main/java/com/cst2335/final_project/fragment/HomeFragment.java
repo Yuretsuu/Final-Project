@@ -1,5 +1,7 @@
 package com.cst2335.final_project.fragment;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,12 +15,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cst2335.final_project.database.Cocktail;
-import com.cst2335.final_project.CocktailAdapter;
 import com.cst2335.final_project.adapter.CocktailRecyclerViewAdapter;
 import com.cst2335.final_project.callback.RecyclerItemClickCallback;
 import com.cst2335.final_project.callback.ResponseCallback;
 import com.cst2335.final_project.network.APICall;
-import com.example.cocktaildatabase_loveleen.R;
+import com.cst2335.final_project.R;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
@@ -31,6 +32,9 @@ import java.util.List;
  * it loads the searched cocktail from server and shows in graphical interface
  */
 public class HomeFragment extends Fragment implements View.OnClickListener {
+
+    private static final String PREFS_NAME = "MyPrefsFile";
+    private static final String SEARCHED_DRINK_KEY = "searchedDrink";
 
     /* the parent view **/
     private View mParentView;
@@ -50,6 +54,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     /** the list of cocktail drinks received from server **/
     private List<Cocktail> listCocktailDrinks;
 
+    private SharedPreferences sharedPrefs;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -62,9 +68,16 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
      * initializing controls/widgets
      */
     private void init(){
+        // Initialize shared preferences
+        sharedPrefs = getContext().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+
         edtSearch = mParentView.findViewById(R.id.edtSearch);
         btnSearch = mParentView.findViewById(R.id.btnSearch);
         recyclerViewCockTail = mParentView.findViewById(R.id.recyclerCockTail);
+
+        // Check shared preferences for previously searched drink and display it in the search bar
+        String searchedDrink = sharedPrefs.getString(SEARCHED_DRINK_KEY, "");
+        edtSearch.setText(searchedDrink);
 
         listCocktailDrinks = new ArrayList<>();
         cocktailRecyclerViewAdapter = new CocktailRecyclerViewAdapter(getContext(), listCocktailDrinks);
@@ -108,6 +121,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             Snackbar.make(mParentView,"Please enter cocktail drink to search.",Snackbar.LENGTH_SHORT).show();
             return;
         }
+
+        // Save the searched drink into shared preferences
+        SharedPreferences.Editor editor = sharedPrefs.edit();
+        editor.putString(SEARCHED_DRINK_KEY, cocktailDrink);
+        editor.apply();
 
         listCocktailDrinks.clear();
         cocktailRecyclerViewAdapter.notifyDataSetChanged();

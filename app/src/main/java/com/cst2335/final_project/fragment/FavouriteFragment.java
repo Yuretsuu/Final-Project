@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.cocktaildatabase_loveleen.R;
+import com.cst2335.final_project.R;
 import com.cst2335.final_project.adapter.CocktailRecyclerViewAdapter;
 import com.cst2335.final_project.callback.RecyclerItemClickCallback;
 import com.cst2335.final_project.database.Cocktail;
