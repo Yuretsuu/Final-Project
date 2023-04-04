@@ -7,5 +7,8 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="mainBgColor">#F7F7F7</color>
+    <color name="menuBarBgColor">#EAEAEA</color>
+    <color name="appTextColor">#EC6D6D</color>
     <color name="orange">#FB8C00</color>
 </resources>
