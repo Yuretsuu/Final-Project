@@ -36,4 +36,5 @@
     <string name="search_by_ingredient_button">Search by ingredient</string>
     <string name="cocktail_text_on_top">Cocktail</string>
     <string name="app_text_on_top">App</string>
+    <string name="description_for_main_page">Browse our collection of cocktails and discover new favourites</string>
 </resources>
