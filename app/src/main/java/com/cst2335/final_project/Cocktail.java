@@ -31,7 +31,7 @@ public class Cocktail {
     @ColumnInfo(name="ingredientThree")
     String ingredientThree;
 
-    @ColumnInfo(name="ingredientThree")
+    @ColumnInfo(name="imageURL")
     String imageURL;
 
     //Default constructor for Cocktail
@@ -39,9 +39,10 @@ public class Cocktail {
 
     }
 
-    public Cocktail (int id, String name, String instructions,
+    public Cocktail (int id, String imageURL, String name, String instructions,
                      String one, String two, String three){
         this.id = id;
+        this.imageURL = imageURL;
         this.drinkName = name;
         this.instructions = instructions;
         this.ingredientOne = one;

@@ -3,6 +3,8 @@ package com.cst2335.final_project;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.cst2335.final_project.databinding.ActivityMainBinding;
 
@@ -14,13 +16,25 @@ import java.util.List;
  * @author Elizabeth Quach
  */
 public class MainActivity extends AppCompatActivity {
-    List<Cocktail> drinks = new ArrayList<>();
+   // List<Cocktail> drinks = new ArrayList<>();
+    RecyclerView cocktailRecycler;
+    CocktailAdapter cocktailAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActivityMainBinding mainBinding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(mainBinding.getRoot());
+
+        List<Cocktail> cocktailList = new ArrayList<>();
+        cocktailList.add(new Cocktail(1,"URL","Mojito","Take some alcohol","2-3oz Light rum", "Juice of 1 lime", "Soda water"));
+        cocktailList.add(new Cocktail(2,"URL","Long Island","Take some alcohol","vodka", "vodka2", "martini"));
+
+        setCocktailRecycler(cocktailList);
+
+
+
 
 //        // Instantiate the RequestQueue. Please refer to class CocktailAPIHelper for more information.
 //        CocktailAPIHelper apiHelper = new CocktailAPIHelper(this);
@@ -55,4 +69,17 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+    private void setCocktailRecycler(List<Cocktail> cocktailList) {
+
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
+
+        cocktailRecycler = findViewById(R.id.cocktailRecyclerView);
+        cocktailRecycler.setLayoutManager(layoutManager);
+
+        cocktailAdapter = new CocktailAdapter(this, cocktailList);
+        cocktailRecycler.setAdapter(cocktailAdapter);
+
+    }
+
 }

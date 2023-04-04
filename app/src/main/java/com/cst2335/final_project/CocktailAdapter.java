@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.cst2335.final_project.databinding.CocktailDisplayBinding;
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,14 +31,23 @@ public class CocktailAdapter extends RecyclerView.Adapter<CocktailAdapter.ViewHo
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        CocktailDisplayBinding view = CocktailDisplayBinding.inflate(inflater);
-        return new ViewHolder(view.getRoot());
+        View cocktailItems = LayoutInflater.from(context).inflate(R.layout.cocktail_item, parent, false);
+        return new CocktailAdapter.ViewHolder(cocktailItems);
+//        CocktailDisplayBinding view = CocktailDisplayBinding.inflate(inflater);
+//        return new ViewHolder(view.getRoot());
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        //holder.nameOfCocktail.setText(cocktailList.get(position).drinkName);
-        //holder.cocktailImg.setImageResource();
+        Cocktail currentCocktail = cocktailList.get(position);
+
+        //set image from API via URL
+        Glide.with(context).load(currentCocktail.getImageURL()).into(holder.cocktailImg);
+
+        holder.nameOfCocktail.setText(currentCocktail.getDrinkName());
+        holder.ingredientsList.get(0).setText(currentCocktail.getIngredientOne());
+        holder.ingredientsList.get(1).setText(currentCocktail.getIngredientTwo());
+        holder.ingredientsList.get(2).setText(currentCocktail.getIngredientThree());
     }
 
     @Override

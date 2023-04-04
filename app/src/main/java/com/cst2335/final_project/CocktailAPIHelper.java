@@ -52,6 +52,9 @@ public class CocktailAPIHelper {
                             final JSONObject drink = drinks.getJSONObject(i);
 
                             final int id = drink.getInt("idDrink");
+                            // TO DO
+                            // find how image URL is stores in JSON
+                            final String imageURL = drink.getString("strImageURL");
                             final String drinkName = drink.getString("strDrink");
                             final String instructions = drink.getString("strInstructions");
                             final String ingredientOne = drink.getString("strIngredient1");
@@ -59,7 +62,7 @@ public class CocktailAPIHelper {
                             final String ingredientThree = drink.getString("strIngredient3");
 
                             final Cocktail cocktail = new Cocktail(
-                                   id, drinkName, instructions, ingredientOne, ingredientTwo,ingredientThree);
+                                   id, imageURL, drinkName, instructions, ingredientOne, ingredientTwo,ingredientThree);
 
                             result.add(cocktail);
                         }

@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginRight="30dp">
 
 <!--cardview we are using to set up specific radius for image-->
     <androidx.cardview.widget.CardView
@@ -24,8 +25,8 @@
 
             <ImageView
                 android:id="@+id/cocktail_image"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="228dp"
+                android:layout_height="228dp"
                 android:contentDescription="@string/cocktail_img"
                 app:srcCompat="@drawable/cocktail" />
 
