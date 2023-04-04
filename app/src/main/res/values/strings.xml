@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Final_Project</string>
+    <string name="question_img">Question Image</string>
+    <string name="my_favourite_button">My favourite</string>
+    <string name="find_by_name_button">Find by name</string>
+    <string name="search_by_ingredient_button">Search by ingredient</string>
+    <string name="cocktail_text_on_top">Cocktail</string>
+    <string name="app_text_on_top">App</string>
 </resources>
