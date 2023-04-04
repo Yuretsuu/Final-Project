@@ -5,6 +5,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -25,7 +26,13 @@ import java.util.List;
  * @author Elizabeth Quach
  */
 public class MainActivity extends AppCompatActivity {
+
+    private static final String PREFS_NAME = "MyPrefsFile";
+    private static final String SEARCHED_DRINK_KEY = "searchedDrink";
+
+
     List<Cocktail> drinks = new ArrayList<>();
+    private SharedPreferences sharedPrefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,13 +51,21 @@ public class MainActivity extends AppCompatActivity {
 
         CocktailAdapter adapter = new CocktailAdapter(this, drinks);
         mainBinding.recycler.setLayoutManager(new LinearLayoutManager(this));
-        mainBinding.recycler.setAdapter(adapter);
+
+        // Initialize shared preferences
+
+        sharedPrefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);        mainBinding.recycler.setAdapter(adapter);
 
         mainBinding.mainSearchbar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
             @Override
             //s represents the text input that the user inputs in the search bar
             public boolean onQueryTextSubmit(String s) {
+
+                // Save the searched drink into shared preferences
+                SharedPreferences.Editor editor = sharedPrefs.edit();
+                editor.putString(SEARCHED_DRINK_KEY, s);
+                editor.apply();
 
 //                ((ViewGroup)mainBinding.mainTitle.getParent()).removeView(mainBinding.mainTitle);
                 mainBinding.linearLayout.removeView(mainBinding.mainTitle);
@@ -70,6 +85,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Check shared preferences for previously searched drink and display it in the search bar
+        String searchedDrink = sharedPrefs.getString(SEARCHED_DRINK_KEY, "");
+        mainBinding.mainSearchbar.setQuery(searchedDrink, false);
 
     }
 
