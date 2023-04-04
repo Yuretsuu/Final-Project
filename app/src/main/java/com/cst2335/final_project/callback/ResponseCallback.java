@@ -1,6 +1,6 @@
-package com.example.cocktaildatabase_loveleen.callback;
+package com.cst2335.final_project.callback;
 
-import com.example.cocktaildatabase_loveleen.database.Cocktail;
+import com.cst2335.final_project.database.Cocktail;
 
 import java.util.List;
 

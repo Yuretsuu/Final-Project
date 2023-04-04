@@ -1,4 +1,4 @@
-package com.example.cocktaildatabase_loveleen.database;
+package com.cst2335.final_project.database;
 
 import android.content.Context;
 import android.content.SharedPreferences;

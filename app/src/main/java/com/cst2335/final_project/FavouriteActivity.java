@@ -1,16 +1,17 @@
-package com.example.cocktaildatabase_loveleen;
+package com.cst2335.final_project;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.cocktaildatabase_loveleen.fragment.FavouriteFragment;
+import com.cst2335.final_project.fragment.FavouriteFragment;
+import com.example.cocktaildatabase_loveleen.R;
 
 public class FavouriteActivity extends AppCompatActivity {
 
@@ -18,6 +19,8 @@ public class FavouriteActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favourite);
+
+        setSupportActionBar((Toolbar) findViewById(R.id.toolbar2));
 
         getSupportActionBar().setTitle(
                 getResources().getString(R.string.favorite) +

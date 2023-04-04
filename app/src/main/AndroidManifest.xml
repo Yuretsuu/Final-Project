@@ -13,13 +13,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.CocktailDatabase_Loveleen"
+        android:theme="@style/Theme.Final_Project"
         tools:targetApi="31">
         <activity
-            android:name=".FavouriteActivity"
+            android:name="com.cst2335.final_project.FavouriteActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.cst2335.final_project.MainActivity"
             android:exported="true"
             android:label="@string/app_name">
             <intent-filter>
