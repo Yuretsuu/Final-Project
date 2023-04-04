@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(mainBinding.getRoot());
 
         List<Cocktail> cocktailList = new ArrayList<>();
-        cocktailList.add(new Cocktail(1,"URL","Mojito","Take some alcohol","2-3oz Light rum", "Juice of 1 lime", "Soda water"));
+        cocktailList.add(new Cocktail(1,"https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg","Mojito","Take some alcohol","2-3oz Light rum", "Juice of 1 lime", "Soda water"));
         cocktailList.add(new Cocktail(2,"URL","Long Island","Take some alcohol","vodka", "vodka2", "martini"));
 
         setCocktailRecycler(cocktailList);
