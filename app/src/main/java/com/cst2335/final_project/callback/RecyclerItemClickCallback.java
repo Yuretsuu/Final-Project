@@ -1,4 +1,4 @@
-package com.example.cocktaildatabase_loveleen.callback;
+package com.cst2335.final_project.callback;
 
 public abstract class RecyclerItemClickCallback {
 

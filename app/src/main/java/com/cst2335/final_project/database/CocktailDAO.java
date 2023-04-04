@@ -1,4 +1,4 @@
-package com.example.cocktaildatabase_loveleen.database;
+package com.cst2335.final_project.database;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -18,6 +18,9 @@ public interface CocktailDAO {
 
     @Query("Select * from Cocktail")
     public List<Cocktail> getAllCocktails();
+
+    @Query("Select * from Cocktail Where id = id")
+    public Cocktail getCocktail(int id);
 
     @Delete
     void deleteCocktail(Cocktail cocktail);

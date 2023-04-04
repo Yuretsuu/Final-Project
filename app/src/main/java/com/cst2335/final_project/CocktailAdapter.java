@@ -10,7 +10,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.cst2335.final_project.databinding.CocktailDisplayBinding;
+import com.cst2335.final_project.database.Cocktail;
+import com.example.cocktaildatabase_loveleen.R;
+import com.example.cocktaildatabase_loveleen.databinding.CocktailDisplayBinding;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +40,7 @@ public class CocktailAdapter extends RecyclerView.Adapter<CocktailAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.drinkName.setText(cocktailList.get(position).drinkName);
+        holder.drinkName.setText(cocktailList.get(position).getDrinkName());
     }
 
     @Override

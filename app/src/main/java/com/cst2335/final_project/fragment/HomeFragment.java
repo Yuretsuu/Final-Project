@@ -1,4 +1,4 @@
-package com.example.cocktaildatabase_loveleen.fragment;
+package com.cst2335.final_project.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,12 +12,13 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.cst2335.final_project.database.Cocktail;
+import com.cst2335.final_project.CocktailAdapter;
+import com.cst2335.final_project.adapter.CocktailRecyclerViewAdapter;
+import com.cst2335.final_project.callback.RecyclerItemClickCallback;
+import com.cst2335.final_project.callback.ResponseCallback;
+import com.cst2335.final_project.network.APICall;
 import com.example.cocktaildatabase_loveleen.R;
-import com.example.cocktaildatabase_loveleen.adapter.CocktailRecyclerViewAdapter;
-import com.example.cocktaildatabase_loveleen.callback.RecyclerItemClickCallback;
-import com.example.cocktaildatabase_loveleen.callback.ResponseCallback;
-import com.example.cocktaildatabase_loveleen.database.Cocktail;
-import com.example.cocktaildatabase_loveleen.network.APICall;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
@@ -55,7 +56,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         mParentView = LayoutInflater.from(getContext()).inflate(R.layout.fragment_home,container,false);
         init();
         return mParentView;
-
     }
 
     /**
@@ -124,7 +124,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                         cocktailRecyclerViewAdapter.notifyDataSetChanged();
 
                     }
-
                     @Override
                     public void onError(String errorMessage) {
 

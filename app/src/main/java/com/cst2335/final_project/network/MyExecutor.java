@@ -1,4 +1,4 @@
-package com.example.cocktaildatabase_loveleen.network;
+package com.cst2335.final_project.network;
 
 import java.util.concurrent.Executor;
 

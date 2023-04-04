@@ -1,9 +1,6 @@
-package com.example.cocktaildatabase_loveleen.fragment;
+package com.cst2335.final_project.fragment;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,14 +14,11 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.cocktaildatabase_loveleen.R;
-import com.example.cocktaildatabase_loveleen.database.Cocktail;
-import com.example.cocktaildatabase_loveleen.database.CocktailDatabaseAccess;
-import com.example.cocktaildatabase_loveleen.network.MyExecutor;
+import com.cst2335.final_project.database.Cocktail;
+import com.cst2335.final_project.database.CocktailDatabaseAccess;
+import com.cst2335.final_project.network.MyExecutor;
 import com.squareup.picasso.Picasso;
 
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
@@ -147,7 +141,8 @@ public class DetailFragment extends Fragment implements View.OnClickListener {
             @Override
             public void run() {
                 /**  inserting cocktail record into databse **/
-                CocktailDatabaseAccess.getInstance(getActivity()).cocktailDao().insertCocktail(cocktailDrink);
+                if (CocktailDatabaseAccess.getInstance(getActivity()).cocktailDao().getCocktail(cocktailDrink.id) == null)
+                    CocktailDatabaseAccess.getInstance(getActivity()).cocktailDao().insertCocktail(cocktailDrink);
 
                 /** Executing main ui thread so that UI can be updated **/
                 getActivity().runOnUiThread(new Runnable() {

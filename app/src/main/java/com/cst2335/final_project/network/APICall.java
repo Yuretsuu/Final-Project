@@ -1,4 +1,4 @@
-package com.example.cocktaildatabase_loveleen.network;
+package com.cst2335.final_project.network;
 
 import android.content.Context;
 
@@ -7,8 +7,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.cocktaildatabase_loveleen.callback.ResponseCallback;
-import com.example.cocktaildatabase_loveleen.database.Cocktail;
+import com.cst2335.final_project.callback.ResponseCallback;
+import com.cst2335.final_project.database.Cocktail;
 
 import org.json.JSONArray;
 import org.json.JSONException;

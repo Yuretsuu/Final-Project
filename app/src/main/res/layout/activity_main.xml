@@ -4,63 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/app_bar_main">
-
-    <fragment
-        android:id="@+id/nav_host_fragment_content_main"
-        android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:defaultNavHost="true"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
-    tools:context=".MainActivity">
-
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar"
-
-
-        />
-
-
+    tools:context="com.cst2335.final_project.MainActivity"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     <LinearLayout
-        android:id="@+id/linear_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:animateLayoutChanges="true"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/main_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="244dp"
-            android:text="Cocktail Database"
-            android:textAlignment="center"
-            android:textColor="#009688"
-            android:textSize="34sp" />
+        <include
+            android:id="@+id/toolbar"
 
-        <SearchView
-            android:id="@+id/main_searchbar"
-            android:layout_width="382dp"
-            android:layout_height="63dp"
-            android:layout_marginStart="1dp"
-            android:layout_marginEnd="1dp"
-            android:queryHint="search" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler"
+            layout="@layout/toolbar" />
+
+        <fragment
+            android:id="@+id/nav_host_fragment_content_main"
+            android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="1dp"
-            android:layout_marginTop="1dp"
-            android:layout_marginEnd="1dp"
-            android:layout_marginBottom="1dp" />
+            app:defaultNavHost="true"
+            tools:context="com.cst2335.final_project.MainActivity"
+            tools:layout="@layout/fragment_home" />
     </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

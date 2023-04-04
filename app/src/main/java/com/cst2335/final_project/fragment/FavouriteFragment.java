@@ -1,4 +1,4 @@
-package com.example.cocktaildatabase_loveleen.fragment;
+package com.cst2335.final_project.fragment;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -17,11 +17,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.cocktaildatabase_loveleen.R;
-import com.example.cocktaildatabase_loveleen.adapter.CocktailRecyclerViewAdapter;
-import com.example.cocktaildatabase_loveleen.callback.RecyclerItemClickCallback;
-import com.example.cocktaildatabase_loveleen.database.Cocktail;
-import com.example.cocktaildatabase_loveleen.database.CocktailDatabaseAccess;
-import com.example.cocktaildatabase_loveleen.database.CocktailPrefrences;
+import com.cst2335.final_project.adapter.CocktailRecyclerViewAdapter;
+import com.cst2335.final_project.callback.RecyclerItemClickCallback;
+import com.cst2335.final_project.database.Cocktail;
+import com.cst2335.final_project.database.CocktailDatabaseAccess;
+import com.cst2335.final_project.database.CocktailPrefrences;
 
 import java.util.ArrayList;
 import java.util.List;

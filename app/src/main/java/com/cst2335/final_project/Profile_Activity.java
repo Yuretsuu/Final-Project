@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.cocktaildatabase_loveleen.R;
+
 /**
  * This class represents a profile of a person.
  * It will store their login information and download history.

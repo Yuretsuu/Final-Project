@@ -1,4 +1,4 @@
-package com.example.cocktaildatabase_loveleen.adapter;
+package com.cst2335.final_project.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -11,10 +11,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.cst2335.final_project.database.Cocktail;
 import com.example.cocktaildatabase_loveleen.R;
-import com.example.cocktaildatabase_loveleen.callback.RecyclerItemClickCallback;
-import com.example.cocktaildatabase_loveleen.database.Cocktail;
 import com.squareup.picasso.Picasso;
+import com.cst2335.final_project.callback.RecyclerItemClickCallback;
 
 import java.util.List;
 
