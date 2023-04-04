@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cst2335.final_project.database.Cocktail;
-import com.example.cocktaildatabase_loveleen.R;
+import com.cst2335.final_project.R;
 import com.squareup.picasso.Picasso;
 import com.cst2335.final_project.callback.RecyclerItemClickCallback;
 

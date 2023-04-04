@@ -8,7 +8,7 @@ import android.view.Menu;
 
 import com.cst2335.final_project.FavouriteActivity;
 import com.cst2335.final_project.fragment.HomeFragment;
-import com.example.cocktaildatabase_loveleen.R;
+import com.cst2335.final_project.R;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

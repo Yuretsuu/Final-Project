@@ -19,10 +19,9 @@ public interface CocktailDAO {
     @Query("Select * from Cocktail")
     public List<Cocktail> getAllCocktails();
 
-    @Query("Select * from Cocktail Where id = id")
+    @Query("Select * from Cocktail Where id =:id")
     public Cocktail getCocktail(int id);
 
     @Delete
     void deleteCocktail(Cocktail cocktail);
-
 }

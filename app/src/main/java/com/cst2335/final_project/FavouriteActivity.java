@@ -11,7 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.cst2335.final_project.fragment.FavouriteFragment;
-import com.example.cocktaildatabase_loveleen.R;
+import com.cst2335.final_project.R;
 
 public class FavouriteActivity extends AppCompatActivity {
 

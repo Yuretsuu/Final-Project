@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.cocktaildatabase_loveleen.R;
+import com.cst2335.final_project.R;
 
 /**
  * This class represents a profile of a person.
