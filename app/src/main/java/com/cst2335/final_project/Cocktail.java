@@ -29,7 +29,10 @@ public class Cocktail {
     String ingredientTwo;
 
     @ColumnInfo(name="ingredientThree")
-    String getIngredientThree;
+    String ingredientThree;
+
+    @ColumnInfo(name="ingredientThree")
+    String imageURL;
 
     //Default constructor for Cocktail
     public Cocktail() {
@@ -43,28 +46,32 @@ public class Cocktail {
         this.instructions = instructions;
         this.ingredientOne = one;
         this.ingredientTwo = two;
-        this.getIngredientThree = three;
+        this.ingredientThree = three;
     }
 
     //getters for class Cocktail
     public String getDrinkName() {
-        return this.drinkName;
+        return drinkName;
     }
 
     public String getInstructions() {
-        return this.instructions;
+        return instructions;
     }
 
     public String getIngredientOne() {
-        return this.ingredientOne;
+        return ingredientOne;
     }
 
     public String getIngredientTwo() {
-        return this.ingredientTwo;
+        return ingredientTwo;
     }
 
-    public String getGetIngredientThree() {
-        return this.getIngredientThree;
+    public String getIngredientThree() {
+        return ingredientThree;
+    }
+
+    public String getImageURL() {
+        return imageURL;
     }
 }
 

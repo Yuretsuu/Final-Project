@@ -1,10 +1,10 @@
 package com.cst2335.final_project;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,7 +14,6 @@ import com.cst2335.final_project.databinding.CocktailDisplayBinding;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.zip.Inflater;
 
 public class CocktailAdapter extends RecyclerView.Adapter<CocktailAdapter.ViewHolder> {
     List<Cocktail> cocktailList;
@@ -38,7 +37,8 @@ public class CocktailAdapter extends RecyclerView.Adapter<CocktailAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.drinkName.setText(cocktailList.get(position).drinkName);
+        //holder.nameOfCocktail.setText(cocktailList.get(position).drinkName);
+        //holder.cocktailImg.setImageResource();
     }
 
     @Override
@@ -50,11 +50,18 @@ public class CocktailAdapter extends RecyclerView.Adapter<CocktailAdapter.ViewHo
     }
     //View class that extends RecyclerView to display the drink name in Recycler View
     public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView drinkName;
+
+        ImageView cocktailImg;
+        TextView nameOfCocktail;
+        List<TextView> ingredientsList = new ArrayList<>();
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            drinkName = itemView.findViewById(R.id.cocktail_drink_name);
+            cocktailImg = itemView.findViewById(R.id.cocktail_image);
+            nameOfCocktail = itemView.findViewById(R.id.name_of_cocktail);
+            ingredientsList.add(itemView.findViewById(R.id.first_ingredient));
+            ingredientsList.add(itemView.findViewById(R.id.secod_ingredient));
+            ingredientsList.add(itemView.findViewById(R.id.third_ingredient));
         }
     }
 
