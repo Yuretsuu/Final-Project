@@ -3,11 +3,6 @@ package com.cst2335.final_project.fragment;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -15,6 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.cst2335.final_project.R;
 import com.cst2335.final_project.adapter.CocktailRecyclerViewAdapter;
@@ -70,8 +69,7 @@ public class FavouriteFragment extends Fragment implements TextWatcher {
     private void init(){
         edtSearch = mParentView.findViewById(R.id.edtSearch);
         edtSearch.addTextChangedListener(this);
-         recyclerViewCockTail = mParentView.findViewById(R.id.recyclerCockTail);
-         //databaseHandler = new DatabaseHandler(getContext());
+        recyclerViewCockTail = mParentView.findViewById(R.id.recyclerCockTail);
 
         listCocktailDrinks = new ArrayList<>();
         listCocktailDrinksAll = new ArrayList<>();

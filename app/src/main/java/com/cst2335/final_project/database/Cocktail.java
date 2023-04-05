@@ -103,6 +103,8 @@ public class Cocktail {
     public void setThumbnail(String thumbnail) {
         this.thumbnail = thumbnail;
     }
+
+
 }
 
 

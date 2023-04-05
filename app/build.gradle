@@ -48,6 +48,8 @@ dependencies {
     // Enable access to ROOM for ease of use of SQL commands
     implementation "androidx.room:room-runtime:2.5.0"
     annotationProcessor "androidx.room:room-compiler:2.5.0"
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
 
     // Enable access to load image from API via URL
     implementation 'com.github.bumptech.glide:glide:4.12.0'

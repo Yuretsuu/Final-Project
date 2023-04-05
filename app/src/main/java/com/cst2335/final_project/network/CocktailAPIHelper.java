@@ -24,6 +24,7 @@ public class CocktailAPIHelper {
 
     private static final String URL_SEARCH_NAME = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
     private static final String URL_SEARCH_INGREDIENT = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=";
+    private static final String URL_SEARCH_ID = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=";
     private RequestQueue queue;
 
     public CocktailAPIHelper(RequestQueue q){
@@ -65,7 +66,7 @@ public class CocktailAPIHelper {
 
                             result.add(cocktail);
                         }
-                        //
+
                         callback.onResponse(result);
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -82,6 +83,103 @@ public class CocktailAPIHelper {
         return;
     }
 
+
+    /**
+     *
+     * @param query user input
+     * @param callback when the API response comes back.
+     */
+    public void searchByIngredient(String query, SearchCallback callback) {
+        final List<Cocktail> result = new ArrayList<>();
+
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, URL_SEARCH_INGREDIENT + query, null,
+                (response) -> {
+                    try {
+                        JSONArray drinks = response.getJSONArray("drinks");
+
+                        final int n ;
+                        // if size of list too large then set max size 20 drinks
+                        if(drinks.length() > 20){  n = 20;}else{ n = drinks.length();}
+
+                        for (int i = 0; i < n; i++) {
+                            final JSONObject drink = drinks.getJSONObject(i);
+
+                            final int id = drink.getInt("idDrink");
+
+                            this.searchByID(id, (cocktails) -> {
+                                for (Cocktail cocktail : cocktails) {
+                                        result.add(cocktail);
+                                }
+                                // notify the caller when all drinks have been processed
+                                if (result.size() == n) {
+                                    callback.onResponse(result);
+                                }
+                            });
+
+                        }
+                        //
+                        //callback.onResponse(result);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                },
+
+                (error) -> {
+                    Log.e("Error", error.getMessage());
+                }
+        );
+
+        queue.add(request);
+        return;
+    }
+
+    /**
+     *
+     * @param query user input
+     * @param callback when the API response comes back.
+     */
+    public void searchByID(int query, SearchCallback callback) {
+        final List<Cocktail> result = new ArrayList<>();
+
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, URL_SEARCH_ID + query, null,
+                (response) -> {
+                    try {
+                        JSONArray drinks = response.getJSONArray("drinks");
+
+                        final int n = drinks.length();
+
+                        for (int i = 0; i < n; i++) {
+                            final JSONObject drink = drinks.getJSONObject(i);
+
+                            final int id = drink.getInt("idDrink");
+                            final String imageURL = drink.getString("strDrinkThumb");
+                            final String drinkName = drink.getString("strDrink");
+                            final String instructions = drink.getString("strInstructions");
+                            final String ingredientOne = drink.getString("strIngredient1");
+                            final String ingredientTwo = drink.getString("strIngredient2");
+                            final String ingredientThree = drink.getString("strIngredient3");
+
+                            final Cocktail cocktail = new Cocktail(
+                                    id, imageURL, drinkName, instructions, ingredientOne, ingredientTwo,ingredientThree);
+
+                            result.add(cocktail);
+                        }
+                        //
+                        callback.onResponse(result);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                },
+
+                (error) -> {
+                    Log.e("Error", error.getMessage());
+                }
+        );
+
+
+        queue.add(request);
+        return;
+    }
 
     public void setQueue(RequestQueue queue) {
         this.queue = queue;
