@@ -11,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.cst2335.final_project.FavouriteActivity;
+import com.cst2335.final_project.MainActivity;
 import com.cst2335.final_project.R;
 
 public class ToolbarFragment extends Fragment {
@@ -22,14 +24,23 @@ public class ToolbarFragment extends Fragment {
             Log.wtf("", "Favourites");
 
             // TODO: launch FavouritesActivity
+            Intent intent = new Intent(getContext(), FavouriteActivity.class);
+            startActivity(intent);
+
         });
         toolbar.findViewById(R.id.find_by_name_TextView).setOnClickListener((view) -> {
             Log.wtf("", "Find by name");
             // TODO: launch ActivityMain
+            Intent intent = new Intent(getContext(), MainActivity.class);
+            startActivity(intent);
+
         });
         toolbar.findViewById(R.id.search_by_ingredient_TextView).setOnClickListener((view) -> {
             Log.wtf("", "Find by ingredient");
             // TODO: launch FindByIngredientsActivity
+           // Intent intent = new Intent(getContext(), FindByIngredientsActivity.class);
+           // startActivity(intent);
+
         });
         return toolbar;
     }
