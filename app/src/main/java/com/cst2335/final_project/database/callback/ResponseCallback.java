@@ -1,4 +1,4 @@
-package com.cst2335.final_project.callback;
+package com.cst2335.final_project.database.callback;
 
 import com.cst2335.final_project.database.Cocktail;
 

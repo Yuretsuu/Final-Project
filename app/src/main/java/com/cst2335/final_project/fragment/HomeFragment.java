@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.cst2335.final_project.network.CocktailAPIHelper;
 import com.cst2335.final_project.database.Cocktail;
 import com.cst2335.final_project.adapter.CocktailRecyclerViewAdapter;
-import com.cst2335.final_project.callback.RecyclerItemClickCallback;
+import com.cst2335.final_project.database.callback.RecyclerItemClickCallback;
 import com.cst2335.final_project.R;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -75,8 +75,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         recyclerViewCockTail = mParentView.findViewById(R.id.cocktailRecyclerView);
 
         // Check shared preferences for previously searched drink and display it in the search bar
-        String searchedDrink = sharedPrefs.getString(SEARCHED_DRINK_KEY, "");
-        edtSearch.setText(searchedDrink);
+        // String searchedDrink = sharedPrefs.getString(SEARCHED_DRINK_KEY, "");
+        //edtSearch.setText(searchedDrink);
 
         listCocktailDrinks = new ArrayList<>();
         cocktailRecyclerViewAdapter = new CocktailRecyclerViewAdapter(getContext(), listCocktailDrinks);
