@@ -21,8 +21,8 @@ public class FavouriteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //load favopurite fragment that will fetch cocktails from local database and show in
-        // recyclervview
+        //load favourite fragment that will fetch cocktails from local database and show in
+        // recyclerview
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.nav_host_fragment_content_main, new FavouriteFragment())
@@ -34,12 +34,7 @@ public class FavouriteActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(getResources().getString(R.string.help));
         builder.setMessage(getResources().getString(R.string.help_desc));
-        builder.setPositiveButton(getResources().getString(R.string.yes), new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        });
+        builder.setPositiveButton(getResources().getString(R.string.yes), (dialog, which) -> dialog.dismiss());
         builder.create().show();
 
     }

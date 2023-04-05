@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.cst2335.final_project.database.Cocktail;
 import com.cst2335.final_project.R;
 import com.squareup.picasso.Picasso;
-import com.cst2335.final_project.callback.RecyclerItemClickCallback;
+import com.cst2335.final_project.database.callback.RecyclerItemClickCallback;
 
 import java.util.List;
 

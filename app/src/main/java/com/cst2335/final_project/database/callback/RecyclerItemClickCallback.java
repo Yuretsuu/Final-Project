@@ -1,4 +1,4 @@
-package com.cst2335.final_project.callback;
+package com.cst2335.final_project.database.callback;
 
 public abstract class RecyclerItemClickCallback {
 

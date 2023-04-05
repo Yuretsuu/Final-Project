@@ -18,7 +18,7 @@ import android.widget.Toast;
 
 import com.cst2335.final_project.R;
 import com.cst2335.final_project.adapter.CocktailRecyclerViewAdapter;
-import com.cst2335.final_project.callback.RecyclerItemClickCallback;
+import com.cst2335.final_project.database.callback.RecyclerItemClickCallback;
 import com.cst2335.final_project.database.Cocktail;
 import com.cst2335.final_project.database.CocktailDatabaseAccess;
 import com.cst2335.final_project.database.CocktailPrefrences;
