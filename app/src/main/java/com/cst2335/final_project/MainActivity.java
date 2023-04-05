@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
    // List<Cocktail> drinks = new ArrayList<>();
     RecyclerView cocktailRecycler;
     CocktailAdapter cocktailAdapter;
+    List<Cocktail> cocktailList;
 
 
     @Override
@@ -27,13 +28,12 @@ public class MainActivity extends AppCompatActivity {
         ActivityMainBinding mainBinding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(mainBinding.getRoot());
 
-        List<Cocktail> cocktailList = new ArrayList<>();
+        cocktailList = new ArrayList<>();
+
         cocktailList.add(new Cocktail(1,"https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg","Mojito","Take some alcohol","2-3oz Light rum", "Juice of 1 lime", "Soda water"));
         cocktailList.add(new Cocktail(2,"URL","Long Island","Take some alcohol","vodka", "vodka2", "martini"));
 
         setCocktailRecycler(cocktailList);
-
-
 
 
 //        // Instantiate the RequestQueue. Please refer to class CocktailAPIHelper for more information.
