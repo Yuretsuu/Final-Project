@@ -1,4 +1,4 @@
-package com.cst2335.final_project;
+package com.cst2335.final_project.network;
 
 import android.content.Context;
 import android.util.Log;
@@ -53,6 +53,7 @@ public class CocktailAPIHelper {
                             final JSONObject drink = drinks.getJSONObject(i);
 
                             final int id = drink.getInt("idDrink");
+                            final String imageURL = drink.getString("strDrinkThumb");
                             final String drinkName = drink.getString("strDrink");
                             final String instructions = drink.getString("strInstructions");
                             final String ingredientOne = drink.getString("strIngredient1");
@@ -60,7 +61,7 @@ public class CocktailAPIHelper {
                             final String ingredientThree = drink.getString("strIngredient3");
 
                             final Cocktail cocktail = new Cocktail(
-                                   id, drinkName, instructions, ingredientOne, ingredientTwo,ingredientThree);
+                                   id, imageURL, drinkName, instructions, ingredientOne, ingredientTwo,ingredientThree);
 
                             result.add(cocktail);
                         }
