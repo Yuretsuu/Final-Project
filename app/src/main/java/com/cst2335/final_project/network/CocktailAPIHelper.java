@@ -1,4 +1,4 @@
-package com.cst2335.final_project;
+package com.cst2335.final_project.network;
 
 import android.content.Context;
 import android.util.Log;

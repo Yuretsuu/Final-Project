@@ -9,6 +9,7 @@ import android.view.Menu;
 import com.cst2335.final_project.FavouriteActivity;
 import com.cst2335.final_project.fragment.HomeFragment;
 import com.cst2335.final_project.R;
+import com.cst2335.final_project.fragment.ToolbarFragment;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,30 +30,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.nav_host_fragment_content_main, new HomeFragment())
+                .add(R.id.toolbar, new ToolbarFragment())
                 .commit();
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId())
-        {
-            // favourite icon selected
-            case R.id.action_favorites:
-                // move to favourite activity
-                startActivity(new Intent(this, FavouriteActivity.class));
-                return true;
-        }
-        return false;
-    }
-
 }

@@ -14,18 +14,17 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.cst2335.final_project.network.CocktailAPIHelper;
 import com.cst2335.final_project.database.Cocktail;
 import com.cst2335.final_project.adapter.CocktailRecyclerViewAdapter;
 import com.cst2335.final_project.callback.RecyclerItemClickCallback;
-import com.cst2335.final_project.callback.ResponseCallback;
-import com.cst2335.final_project.network.APICall;
 import com.cst2335.final_project.R;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
+/**S
  * Loveleen Kaur
  * 28/03/2023
  * this the very first fragment that will be loaded into the MainActivity (Dashboard screen)
@@ -73,7 +72,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
         edtSearch = mParentView.findViewById(R.id.edtSearch);
         btnSearch = mParentView.findViewById(R.id.btnSearch);
-        recyclerViewCockTail = mParentView.findViewById(R.id.recyclerCockTail);
+        recyclerViewCockTail = mParentView.findViewById(R.id.cocktailRecyclerView);
 
         // Check shared preferences for previously searched drink and display it in the search bar
         String searchedDrink = sharedPrefs.getString(SEARCHED_DRINK_KEY, "");
@@ -97,12 +96,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         btnSearch.setOnClickListener(this);
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-    }
-
-    @Override
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btnSearch:
@@ -114,39 +107,27 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
     /**
      * implementing search operation
-     * @param cocktailDrink
+     * @param search
      */
-    private void searchCockTailDrink(String cocktailDrink){
-        if(cocktailDrink.length() == 0){
+    private void searchCockTailDrink(String search){
+        if(search.length() == 0){
             Snackbar.make(mParentView,"Please enter cocktail drink to search.",Snackbar.LENGTH_SHORT).show();
             return;
         }
 
         // Save the searched drink into shared preferences
         SharedPreferences.Editor editor = sharedPrefs.edit();
-        editor.putString(SEARCHED_DRINK_KEY, cocktailDrink);
+        editor.putString(SEARCHED_DRINK_KEY, search);
         editor.apply();
 
         listCocktailDrinks.clear();
         cocktailRecyclerViewAdapter.notifyDataSetChanged();
 
-        APICall.getInstance(getContext()).getCocktail(
-                cocktailDrink,
-                new ResponseCallback() {
-                    @Override
-                    public void onSuccess(List<Cocktail> listCocktails) {
-                        for(Cocktail ctd : listCocktails){
-                            listCocktailDrinks.add(ctd);
-                        }
-
-                        cocktailRecyclerViewAdapter.notifyDataSetChanged();
-
-                    }
-                    @Override
-                    public void onError(String errorMessage) {
-
-                    }
-                }
-        );
+        CocktailAPIHelper apiHelper = new CocktailAPIHelper(getContext());
+        apiHelper.searchByName(search, (drinks) -> {
+            for(Cocktail drink : drinks)
+                listCocktailDrinks.add(drink);
+            cocktailRecyclerViewAdapter.notifyDataSetChanged();
+        });
     }
 }

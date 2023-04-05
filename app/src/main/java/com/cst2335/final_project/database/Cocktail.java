@@ -39,10 +39,11 @@ public class Cocktail {
 
     }
 
-    public Cocktail (int id, String name, String instructions,
+    public Cocktail (int id, String imageURL, String name, String instructions,
                      String one, String two, String three){
 
         this.id = id;
+        this.thumbnail = imageURL;
         this.drinkName = name;
         this.instructions = instructions;
         this.ingredientOne = one;
