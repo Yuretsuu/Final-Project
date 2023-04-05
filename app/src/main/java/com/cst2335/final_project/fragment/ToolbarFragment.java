@@ -14,6 +14,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import com.cst2335.final_project.FavouriteActivity;
+import com.cst2335.final_project.FindByIngredientsActivity;
 import com.cst2335.final_project.MainActivity;
 import com.cst2335.final_project.R;
 
@@ -42,8 +43,8 @@ public class ToolbarFragment extends Fragment {
         toolbar.findViewById(R.id.search_by_ingredient_TextView).setOnClickListener((view) -> {
             Log.wtf("", "Find by ingredient");
             // TODO: launch FindByIngredientsActivity
-           // Intent intent = new Intent(getContext(), FindByIngredientsActivity.class);
-           // startActivity(intent);
+            Intent intent = new Intent(getContext(), FindByIngredientsActivity.class);
+            startActivity(intent);
 
         });
         // TODO: set Onclick on image view to display help message
