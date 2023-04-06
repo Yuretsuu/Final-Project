@@ -8,12 +8,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.cst2335.final_project.database.CocktailPrefrences;
 import com.cst2335.final_project.network.CocktailAPIHelper;
 import com.cst2335.final_project.database.Cocktail;
 import com.cst2335.final_project.adapter.CocktailRecyclerViewAdapter;
@@ -60,6 +62,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                              ViewGroup container, Bundle savedInstanceState) {
         mParentView = LayoutInflater.from(getContext()).inflate(R.layout.fragment_home,container,false);
         init();
+        Toast.makeText(getContext(),  getResources().getString(R.string.find_by_name_toast_message), Toast.LENGTH_SHORT).show();
+        cocktailRecyclerViewAdapter.notifyDataSetChanged();
+        edtSearch.setText(CocktailPrefrences.getInstance(getContext())
+                .getFromPrefrences("term", ""));
+
         return mParentView;
     }
 

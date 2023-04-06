@@ -120,7 +120,7 @@ public class FavouriteFragment extends Fragment implements TextWatcher {
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(getContext(), listCocktailDrinks.size() + getResources().getString(R.string.favorite_cocktail_shown), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), listCocktailDrinks.size() + " " +getResources().getString(R.string.favorite_cocktail_shown), Toast.LENGTH_SHORT).show();
                         cocktailRecyclerViewAdapter.notifyDataSetChanged();
                         edtSearch.setText(CocktailPrefrences.getInstance(getContext())
                                 .getFromPrefrences("term", ""));

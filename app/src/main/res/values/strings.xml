@@ -12,6 +12,8 @@
     <string name="cocktail_drink_name">Cocktail Drink Name</string>
     <string name="how_to_prepare">How to prepare cocktail :-</string>
     <string name="favorite_cocktail_shown">favourite Cocktails are shown.</string>
+    <string name="find_by_name_toast_message">Find by name page is shown.</string>
+    <string name="find_by_ingredient_toast_message">Find by ingredient page is shown.</string>
     <string name="confirmation">Confirmation</string>
     <string name="do_you_want_to_delete">Do you want to delete this cocktail drink ?</string>
     <string name="yes">Yes</string>
@@ -27,7 +29,11 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="help">Help</string>
     <string name="help_desc">
-        1. This favorite screen shows list of cocktail Drinks which are saved in local database.\n 2.If user long presses the item from favorite list then it shows confirmation dialog for deleting the item.\n3. If user click the item in the list then it will take to next screen i.e. detail screen where it shows thumnail image, cocktail drink name with ingredients and instructions.\n\nThank you
+        1. Download your favourite drinks with our app! Your downloaded drinks will be stored in the local database.
+        \n 2. Search your drink using the search bar, whether by ingredient or name, and select what drink you want to save.
+        \n3.  Click "Add to favourites" to save your drink and have it appear in the favourites tab.
+        \n4.  Hold to remove from favourites
+        \n\n
     </string>
 
     <string name="question_img">Question Image</string>
@@ -35,6 +41,7 @@
     <string name="find_by_name_button">Find by name</string>
     <string name="search_by_ingredient_button">Search by ingredient</string>
     <string name="cocktail_text_on_top">Cocktail</string>
+
     <string name="app_text_on_top">App</string>
     <string name="description_for_main_page">Browse our collection of cocktails and discover new favourites</string>
     <string name="cocktail_img">Cocktail Image</string>
