@@ -81,6 +81,7 @@ public class HomeFragmentForSearchByIngredients extends Fragment implements View
                              ViewGroup container, Bundle savedInstanceState) {
         mParentView = LayoutInflater.from(getContext()).inflate(R.layout.fragment_home, container, false);
         init();
+        //display toast message
         Toast.makeText(getContext(), getResources().getString(R.string.find_by_ingredient_toast_message), Toast.LENGTH_SHORT).show();
         cocktailRecyclerViewAdapter.notifyDataSetChanged();
         return mParentView;
@@ -93,22 +94,32 @@ public class HomeFragmentForSearchByIngredients extends Fragment implements View
         // Initialize shared preferences
         sharedPrefs = getContext().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
 
+        // Initialize UI elements
         edtSearch = mParentView.findViewById(R.id.edtSearch);
         btnSearch = mParentView.findViewById(R.id.btnSearch);
         recyclerViewCockTail = mParentView.findViewById(R.id.cocktailRecyclerView);
 
-        // Check shared preferences for previously searched drink and display it in the search bar
+        // Load previously searched cocktail
         String searchedDrink = sharedPrefs.getString(SEARCHED_DRINK_KEY, "");
         edtSearch.setText(searchedDrink);
 
+        // Initialize an empty list to hold the cocktail drinks
         listCocktailDrinks = new ArrayList<>();
+
+        // Create a new adapter for the recyclerview, passing in the context and the list of cocktail drinks
         cocktailRecyclerViewAdapter = new CocktailRecyclerViewAdapter(getContext(), listCocktailDrinks);
+
+        // Set the adapter for the recyclerview
         recyclerViewCockTail.setAdapter(cocktailRecyclerViewAdapter);
+
+        // Set the layout manager for the recyclerview
         recyclerViewCockTail.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        // Set item click callback for RecyclerView
         cocktailRecyclerViewAdapter.setRecyclerItemClickCallback(new RecyclerItemClickCallback() {
             @Override
             public void onItemClick(int position) {
-                // Open the detail fragment for the selected drink
+                // Launch detail fragment for selected cocktail
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
                         .add(R.id.nav_host_fragment_content_main, new DetailFragment(listCocktailDrinks.get(position)))
@@ -116,13 +127,13 @@ public class HomeFragmentForSearchByIngredients extends Fragment implements View
                         .commit();
             }
         });
-
+        // Set click listener for search button
         btnSearch.setOnClickListener(this);
     }
 
     /**
-     * Handles the click event of search button.
-     *
+     * Called when the search button is clicked.
+     * Validates the search input and searches for cocktails by ingredient.
      * @param view The view that was clicked.
      */
     public void onClick(View view) {
@@ -135,13 +146,13 @@ public class HomeFragmentForSearchByIngredients extends Fragment implements View
     }
 
     /**
-     * Implements the search operation.
-     *
-     * @param search The search term entered by the user
+     * Searches for cocktails by ingredient.
+     * Saves the searched ingredient to SharedPreferences for future use.
+     * @param search the ingredient to search for
      */
     private void searchByIngredient(String search) {
         if (search.length() == 0) {
-            Snackbar.make(mParentView, "Please enter cocktail drink to search.", Snackbar.LENGTH_SHORT).show();
+            Snackbar.make(mParentView, "Please enter cocktail ingredient to search.", Snackbar.LENGTH_SHORT).show();
             return;
         }
 
