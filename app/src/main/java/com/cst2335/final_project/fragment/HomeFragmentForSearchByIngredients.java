@@ -80,7 +80,7 @@ public class HomeFragmentForSearchByIngredients extends Fragment implements View
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         mParentView = LayoutInflater.from(getContext()).inflate(R.layout.fragment_home, container, false);
-        init();
+        initializeUIComponents();
         //display toast message
         Toast.makeText(getContext(), getResources().getString(R.string.find_by_ingredient_toast_message), Toast.LENGTH_SHORT).show();
         cocktailRecyclerViewAdapter.notifyDataSetChanged();
@@ -90,7 +90,7 @@ public class HomeFragmentForSearchByIngredients extends Fragment implements View
     /**
      * Initializes controls and widgets.
      */
-    private void init() {
+    private void initializeUIComponents() {
         // Initialize shared preferences
         sharedPrefs = getContext().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
 
